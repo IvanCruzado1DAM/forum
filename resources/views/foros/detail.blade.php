@@ -43,7 +43,7 @@
 
 		@Logged()
 			<h3 class="text-muted">{{ __("Añadir un nuevo post al foro :name", ['name' => $forum->name]) }}</h3>
-            		@include('partials.errors')
+            @include('partials.errors')
 			<form method="POST" action="../posts">
 				{{ csrf_field() }}
 				<input type="hidden" name="forum_id" value="{{ $forum->id }}"/>

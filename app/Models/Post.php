@@ -19,6 +19,14 @@ class Post extends Model
         'title',
         'description'
     ];
+    
+    // protected static function boot() {
+    //     parent::boot();
+
+    //     static::creating(function($post) {
+    //         $post->user_id = auth()->id();
+    //     });
+    // }
 
     public function forum(): BelongsTo{
         return $this->belongsTo(Forum::class,'forum_id');
