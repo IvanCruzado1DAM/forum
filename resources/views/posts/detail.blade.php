@@ -38,7 +38,7 @@
 		@if($replies->count())
 			{{ $replies->links() }}
 		@endif
-
+	
     </div>
 </div>
 
