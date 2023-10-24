@@ -39,4 +39,21 @@ class Post extends Model
     public function replies(): HasMany {
         return $this->HasMany(Reply::class);
     }
+
+    public function isOwner() {
+        return $this->owner->id === auth()->id();
+        // También es posible ponerlo de la siguiente forma
+        // return $this->owner == auth()->user();
+    }
+    
+    protected static function boot(){
+        parent::boot();
+
+        static::deleting(function($post) {
+            if( ! App()->runningInConsole() && $post->replies()->count()) {
+                    $post->replies()->delete();
+            }
+
+        });
+    }
 }

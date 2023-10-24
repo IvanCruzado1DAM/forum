@@ -25,6 +25,30 @@
 	            <div class="panel-body">
 	                {{ $reply->reply }}
 	            </div>
+				@if($reply->isAuthor())
+					<div class="panel-footer">
+						<form method="POST" action="{{ route('replies.delete', [$reply->id]) }}">
+							{{ method_field('DELETE') }}
+							{{ csrf_field() }}
+							<button type="submit" name="deleteReply" class="btn btn-danger">
+								{{ __("Eliminar respuesta") }}
+							</button>
+						</form>
+					</div>
+				@endif
+				@if($reply->isAuthor())
+					<div class="panel-footer">
+						<form method="POST" action="{{ route('replies.delete', [$reply->id]) }}">
+							{{ method_field('PUT') }}
+							{{ csrf_field() }}
+							<button type="submit" name="updateReply" class="btn btn-danger">
+								{{ __("Editar respuesta") }}
+							</button>
+						</form>
+					</div>
+				@endif
+
+
 	        </div>
 
     	@empty

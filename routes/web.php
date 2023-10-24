@@ -41,10 +41,18 @@ Route::get('/forums', [App\Http\Controllers\ForumController::class, 'index'])->n
 
 Route::resource('/forums',ForumController::class);
 
-Route::resource('/forums/forums',ForumController::class);
+//Route::resource('/forums/forums',ForumController::class);
 
-Route::resource('/forums/posts',PostController::class);
-
-Route::resource('/posts',PostController::class);
+Route::resource('posts',PostController::class);
 
 Route::resource('replies', ReplyController::class);
+
+//Route::resource('forums/replies', ReplyController::class);
+
+Route::delete('forums/replies/{reply}', [App\Http\Controllers\ReplyController::class, 'destroy'])->name('replies.delete');
+
+Route::delete('/replies/{reply}', [App\Http\Controllers\ReplyController::class, 'destroy'])->name('replies.delete');
+
+Route::delete('forums/posts/{post}', [App\Http\Controllers\PostController::class, 'destroy'])->name('posts.delete');
+
+Route::delete('/posts/{post}', [App\Http\Controllers\PostController::class, 'destroy'])->name('posts.delete');
