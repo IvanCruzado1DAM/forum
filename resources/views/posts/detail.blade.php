@@ -47,7 +47,7 @@
 
                             <div class="form-group">
                                 <label for="reply" class="col-md-12 control-label">{{ __("Respuesta") }}</label>
-                                <textarea id="reply" class="form-control" name="reply"></textarea>
+                                <textarea id="reply" class="form-control" name="reply">{{ old('reply') }}</textarea>
                             </div>
                             <button type="submit" name="updateReply" class="btn btn-warning">
                                 {{ __("Editar respuesta") }}
@@ -79,8 +79,8 @@
                 <input type="hidden" name="post_id" value="{{ $post->id }}" />
 
                 <div class="form-group">
-                    <label for="reply" class="col-md-12 control-label">{{ __("Respuesta") }}</label>
-                    <textarea id="reply" class="form-control" name="reply"></textarea>
+                    <label for="replytext" class="col-md-12 control-label">{{ __("Respuesta") }}</label>
+                    <textarea id="replytext" class="form-control" name="replytext"></textarea>
                 </div>
 
                 <button type="submit" name="addReply" class="btn btn-default">{{ __("Añadir respuesta") }}</button>

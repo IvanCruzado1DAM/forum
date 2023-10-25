@@ -57,7 +57,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $this->validate(request(), [
+            'post' => 'required',
+        ]);
+
+        $post->update(request()->input());
+        return back()->with('message', ['success', __('Post actualizado correctamente')]);
+    
     }
 
     /**
