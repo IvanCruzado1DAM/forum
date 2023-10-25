@@ -44,11 +44,15 @@
 					<div class="panel-footer">
 							<form method="POST" action="../posts/{{ $post->id }}">  
 								<!-- Es necesario enmascarar el método Delete en Laravel -->
-								{{ method_field('PUT') }}
-								{{ csrf_field() }}
+								@csrf
+                            	@method('PUT')
 								<div class="form-group">
-									<label for="reply" class="col-md-12 control-label">{{ __("Nuevo Nombre Post") }}</label>
-									<textarea id="reply" class="form-control" name="reply"></textarea>
+									<label for="replytitle" class="col-md-12 control-label">{{ __("Nuevo Nombre Post") }}</label>
+									<textarea id="replytitle" class="form-control" name="replytitle"></textarea>
+								</div>
+								<div class="form-group">
+									<label for="replydescription" class="col-md-12 control-label">{{ __("Nueva Descripcion Post") }}</label>
+									<textarea id="replydescription" class="form-control" name="replydescription"></textarea>
 								</div>
 								<button type="submit" name="updatePost" class="btn btn-danger">{{ __("Editar post") }}</button>
 							</form>
