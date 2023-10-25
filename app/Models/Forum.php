@@ -16,6 +16,7 @@ class Forum extends Model
     protected $fillable = [ //--> Especificamos campo que rellenamos
         'name',
         'description',
+        'slug'
     ];
 
     public function posts(): HasMany {
