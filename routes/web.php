@@ -56,3 +56,5 @@ Route::delete('/replies/{reply}', [App\Http\Controllers\ReplyController::class, 
 Route::delete('forums/posts/{post}', [App\Http\Controllers\PostController::class, 'destroy'])->name('posts.delete');
 
 Route::delete('/posts/{post}', [App\Http\Controllers\PostController::class, 'destroy'])->name('posts.delete');
+
+Route::get('generate-pdf', [App\Http\Controllers\PDFController::class, 'generatePDF']);
